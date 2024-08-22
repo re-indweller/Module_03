@@ -6,7 +6,7 @@ def string_info(string):
     return (len(string), string.upper(), string.lower())
 def is_contains(string, list_to_search):
     for item in is_contains():
-        if item == string.lower():
+        if item.lower() == string.lower():
             return True
         else:
             return False

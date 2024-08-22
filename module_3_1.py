@@ -7,11 +7,10 @@ def string_info(string):
     return (len(string), string.upper(), string.lower())
 def is_contains(string, list_to_search):
     count_calls()
-    for item in list_to_search():
+    for item in list_to_search:
         if item.lower() == string.lower():
             return True
-        else:
-            return False
+    return False
 
 print(string_info('Capybara'))
 print(string_info('Armageddon'))

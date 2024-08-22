@@ -3,9 +3,11 @@ def count_calls():
     global calls
     calls += 1
 def string_info(string):
+    count_calls()
     return (len(string), string.upper(), string.lower())
 def is_contains(string, list_to_search):
-    for item in is_contains():
+    count_calls()
+    for item in list_to_search():
         if item.lower() == string.lower():
             return True
         else:

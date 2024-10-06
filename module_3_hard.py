@@ -1,18 +1,24 @@
 def calculate_structure_sum(data_structure):
     total_sum = 0
+
     for element in data_structure:
         if isinstance(element, list):
-            total_sum += sum(calculate_structure_sum(element))
+            total_sum += calculate_structure_sum(element)
         elif isinstance(element, dict):
             total_sum += sum(element.values())
+            total_sum += sum(len(key) for key in element.keys()) # добавил сюда проверку 
+
         elif isinstance(element, tuple):
             for sub_element in element:
                 if isinstance(sub_element, (list, dict, tuple)):
                     total_sum += calculate_structure_sum(sub_element)
                 elif isinstance(sub_element, str):
                     total_sum += len(sub_element)
+                elif isinstance(sub_element, dict):
+                    total_sum += sum(len(key) for key in sub_element.keys()) # добавил сюда проверку 
         elif isinstance(element, str):
             total_sum += len(element)
+
     return total_sum
 
 data_structure = [
